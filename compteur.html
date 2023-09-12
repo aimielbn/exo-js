@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+	
+	    <meta charset="utf-8" />
+		<title>Compteur de cliques</title>
+		<!-- reset -->
+		<link rel="stylesheet" type="text/css" href="css/reset.css" media="screen">
+		<!-- google font -->
+		
+		<!-- style css -->
+		<link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		
+		<!-- puis le print -->
+		<link rel="stylesheet" href="css/print.css" media="print">
+
+	</head>
+	
+	<body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/compteur.html" aria-current="page">Compteur de cliques</a>
+    </nav>
+
+		<h1>Compteur de clics</h1>
+
+		<button id="clicButton"><span id="compteur">0</span></button>
+
+	</body>
+	
+	    <script>
+
+        // Sélectionnez le bouton et le compteur par leur ID
+
+        const bouton = document.getElementById("clicButton");
+
+        const compteur = document.getElementById("compteur");
+
+ 
+
+        // Initialisez le compteur à zéro
+
+        let nombreDeClics = 0;
+
+ 
+
+        // Ajoutez un gestionnaire d'événement au bouton pour compter les clics
+
+        bouton.addEventListener("click", function() {
+
+            nombreDeClics++; // Incrémente le compteur à chaque clic
+
+            compteur.textContent = nombreDeClics; // Met à jour l'affichage du compteur
+
+        });
+
+    </script>
+	</body>
+</html>

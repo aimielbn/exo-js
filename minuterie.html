@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Minuterie</title>
+    <!-- reset -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/reset.css"
+      media="screen"
+    />
+    <!-- google font -->
+
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <!-- puis le print -->
+    <link rel="stylesheet" href="css/print.css" media="print" />
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/minuterie.html" aria-current="page">Minuterie</a>
+    </nav>
+
+    <div><input type="number" id="input" value="60" />secondes</div>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <div id="timer"></div>
+
+    <script>
+      // je déclare les boutons start et stop, le timer, input et je créé un id pour l'interval
+      const start = document.querySelector('#start');
+      const stop = document.querySelector('#stop');
+      const timerText = document.querySelector('#timer');
+      const input = document.querySelector('#input');
+      let intervalID = null;
+      let timeRemaining = 0;
+
+      // j'ajoute un évènement au clic du bouton start
+      start.addEventListener('click', () => {
+        if (timeRemaining <= 0) {
+          timeRemaining = input.value;
+          timerText.textContent = timeRemaining;
+        }
+        intervalID = setInterval(handler, 1000);
+      });
+
+      // j'ajoute un évènement au clic du bouton stop
+      stop.addEventListener('click', () => {
+        clearInterval(intervalID);
+      });
+
+      const handler = () => {
+        if (timeRemaining <= 0) {
+          clearInterval(intervalID);
+        } else {
+          timeRemaining -= 1;
+          timerText.textContent = timeRemaining;
+        }
+      };
+    </script>
+  </body>
+</html>

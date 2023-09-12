@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bouton like avec icone</title>
+    <!-- reset -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/reset.css"
+      media="screen"
+    />
+    <!-- google font -->
+
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <!-- puis le print -->
+    <link rel="stylesheet" href="css/print.css" media="print" />
+    <script
+      src="https://kit.fontawesome.com/b51ce17436.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <style>
+    #icone {
+      transition: transform 0.3s ease-in-out; /* Animation de transformation */
+    }
+  </style>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/like2.html" aria-current="page">Bouton like 2</a>
+    </nav>
+
+    <i id="icone" class="fa-solid fa-thumbs-up"></i>
+    <script>
+      const icone = document.getElementById('icone');
+      let miroir = false;
+      icone.addEventListener('click', function () {
+        miroir = !miroir; // Inverse l'état du miroir à chaque clic
+        if (miroir) {
+          icone.style.transform = 'scaleY(-1)';
+        } else {
+          icone.style.transform = 'scaleY(1)';
+        }
+      });
+    </script>
+  </body>
+</html>

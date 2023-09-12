@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Menu dropdown</title>
+    <!-- reset -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/reset.css"
+      media="screen"
+    />
+    <!-- google font -->
+
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <!-- puis le print -->
+    <link rel="stylesheet" href="css/print.css" media="print" />
+
+    <style>
+      ul,
+      button {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+
+      .hidden {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+
+  <body id="color">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/menudropdown.html" aria-current="page">Menu dropdown</a>
+    </nav>
+
+    <div class="dropdown">
+      <button class="btn" id="menu" type="button">Menu</button>
+      <ul class="hidden" id="dropdown">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Réglages</a></li>
+      </ul>
+    </div>
+  </body>
+
+  <script>
+    // je déclare mon menu, une variable isHidden et mes ul
+    const menu = document.querySelector('#menu');
+    let isHidden = true;
+    const dropdown = document.querySelector('#dropdown');
+
+    // au moment du clic sur le menu, si isHidden on masque les ul. Sinon, on les affiche
+    // et alors !isHidden (donc false)
+    menu.addEventListener('click', () => {
+      if (isHidden) {
+        dropdown.classList.remove('hidden');
+      } else {
+        dropdown.classList.add('hidden');
+      }
+      isHidden = !isHidden;
+    });
+  </script>
+</html>

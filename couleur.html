@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bouton</title>
+    <!-- reset -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/reset.css"
+      media="screen"
+    />
+    <!-- google font -->
+
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <!-- puis le print -->
+    <link rel="stylesheet" href="css/print.css" media="print" />
+
+    <style>
+      button {
+        curser: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/couleur.html" aria-current="page">Changement de couleur</a>
+    </nav>
+
+    <button id="bouton">Passez au bleu !!</button>
+
+    <script>
+      let couleur = 'red';
+
+      // on récupère le bouton et le body
+      const boutton = document.querySelector('#bouton');
+      const body = document.querySelector('body');
+
+      // on change la couleur du body au démarrage
+      body.style.backgroundColor = couleur;
+
+      // console.log(boutton);
+      // on ajoute un évènement click au bouton
+      boutton.addEventListener('click', function () {
+        // quand qlqn click :
+
+        // si la couleur est rouge on passe au bleu
+        // sinon on passe au rouge
+        if (couleur === 'red') {
+          couleur = 'blue';
+          boutton.textContent = 'Passez au rouge !!';
+        } else {
+          couleur = 'red';
+          boutton.textContent = 'Passez au bleu !!';
+        }
+        body.style.backgroundColor = couleur;
+      });
+    </script>
+  </body>
+</html>

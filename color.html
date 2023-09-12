@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sélecteur de couleur</title>
+    <!-- reset -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="css/reset.css"
+      media="screen"
+    />
+    <!-- google font -->
+
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+
+    <!-- puis le print -->
+    <link rel="stylesheet" href="css/print.css" media="print" />
+  </head>
+
+  <body id="color">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/color.html" aria-current="page">Sélecteur de couleur</a>
+    </nav>
+
+    <h1>Sélecteur de couleur</h1>
+
+    <p>
+      <input type="color" value="#FF1493" />
+    </p>
+
+    <button id="btn">Changer le fond</button>
+  </body>
+  <script>
+    // je récupère le bouton, le body et l'input
+    const boutton = document.querySelector('#btn');
+    const input = document.querySelector('input');
+    const body = document.querySelector('#color');
+
+    boutton.addEventListener('click', function () {
+      // quand qlqn click :
+
+      // je change la couleur du fond en rose
+      body.style.backgroundColor = input.value;
+    });
+  </script>
+</html>
