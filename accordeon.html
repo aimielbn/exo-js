@@ -33,6 +33,10 @@
         cursor: pointer;
         padding: 14px 16px;
       }
+
+      #London {
+        display: block;
+      }
     </style>
   </head>
 
@@ -69,19 +73,19 @@
       // Déclarer les variables
       let i, content, links;
 
-      // Cacher les éléments "tabcontent"
-      tabcontent = document.getElementsByClassName('content');
+      // Cacher les éléments "content"
+      content = document.getElementsByClassName('content');
       for (i = 0; i < content.length; i++) {
         content[i].style.display = 'none';
       }
 
-      // class="tablinks" et retirer la classe "active"
+      // class="links" et retirer la classe "active"
       links = document.getElementsByClassName('links');
       for (i = 0; i < links.length; i++) {
         links[i].className = links[i].className.replace(' active', '');
       }
 
-      // afficher les tab avec la classe "active" sur le bouton qui affiche la tab
+      // afficher les content avec la classe "active" sur le bouton qui affiche le content
       document.getElementById(cityName).style.display = 'block';
       evt.currentTarget.className += ' active';
     }
