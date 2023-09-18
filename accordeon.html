@@ -2,7 +2,7 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8" />
-    <title>Accordéon</title>
+    <title>Boucle</title>
     <!-- reset -->
     <link
       rel="stylesheet"
@@ -22,24 +22,25 @@
 
     <!-- puis le print -->
     <link rel="stylesheet" href="css/print.css" media="print" />
-
     <style>
-      .links {
-        background-color: lightgray;
-        width: 100%;
-        text-align: left;
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
+      .accordeon {
+        width: 300px;
+        border: 1px solid #ccc;
+        margin: 20px;
       }
 
-      #London {
-        display: block;
+      .accordeon-title {
+        background-color: #f2f2f2;
+        padding: 15px;
+        cursor: pointer;
+      }
+
+      .accordeon-content {
+        display: none;
+        padding: 10px;
       }
     </style>
   </head>
-
   <body>
     <nav>
       <a href="/">Home</a>
@@ -47,47 +48,42 @@
     </nav>
     <h1>Accordéon</h1>
 
-    <button class="links active" onclick="openCity(event, 'London')">
-      London
-    </button>
-    <div id="London" class="content">
-      <h3>London</h3>
-      <p>London is the capital city of England.</p>
+    <div class="accordeon">
+      <div class="accordeon-title" onclick="toggleAccordeon(this)">
+        Titre de l'accordéon 1 (Section1)
+      </div>
+      <div class="accordeon-content">
+        <p>Description de l'accordéon 1.</p>
+      </div>
     </div>
 
-    <button class="links" onclick="openCity(event, 'Paris')">Paris</button>
-    <div id="Paris" class="content">
-      <h3>Paris</h3>
-      <p>Paris is the capital of France.</p>
+    <div class="accordeon">
+      <div class="accordeon-title" onclick="toggleAccordeon(this)">
+        Titre de l'accordéon 2 (Section2)
+      </div>
+      <div class="accordeon-content">
+        <p>Description de l'accordéon 2.</p>
+      </div>
     </div>
 
-    <button class="links" onclick="openCity(event, 'Tokyo')">Tokyo</button>
-    <div id="Tokyo" class="content">
-      <h3>Tokyo</h3>
-      <p>Tokyo is the capital of Japan.</p>
+    <div class="accordeon">
+      <div class="accordeon-title" onclick="toggleAccordeon(this)">
+        Titre de l'accordéon 3 (Section3)
+      </div>
+      <div class="accordeon-content">
+        <p>Description de l'accordéon 3.</p>
+      </div>
     </div>
+
+    <script>
+      function toggleAccordeon(accordeon) {
+        const content = accordeon.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      }
+    </script>
   </body>
-
-  <script>
-    function openCity(evt, cityName) {
-      // Déclarer les variables
-      let i, content, links;
-
-      // Cacher les éléments "content"
-      content = document.getElementsByClassName('content');
-      for (i = 0; i < content.length; i++) {
-        content[i].style.display = 'none';
-      }
-
-      // class="links" et retirer la classe "active"
-      links = document.getElementsByClassName('links');
-      for (i = 0; i < links.length; i++) {
-        links[i].className = links[i].className.replace(' active', '');
-      }
-
-      // afficher les content avec la classe "active" sur le bouton qui affiche le content
-      document.getElementById(cityName).style.display = 'block';
-      evt.currentTarget.className += ' active';
-    }
-  </script>
 </html>
